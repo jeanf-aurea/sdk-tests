@@ -1,0 +1,16 @@
+3
+function_decl
+match
++2
+function_decl
+str_equalsIgnoreCase
++2
+function_def
+match
++2
++1
+str_equalsIgnoreCase
+get_arg
++0
+get_arg
++1

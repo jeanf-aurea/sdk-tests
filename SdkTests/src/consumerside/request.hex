@@ -1,0 +1,26 @@
+00000000   3c 3f 78 6d 6c 20 76 65 72 73 69 6f 6e 3d 22 31    <?xml.version="1
+00000010   2e 30 22 20 65 6e 63 6f 64 69 6e 67 3d 22 75 74    .0".encoding="ut
+00000020   66 2d 38 22 3f 3e 3c 73 6f 61 70 3a 45 6e 76 65    f-8"?><soap:Enve
+00000030   6c 6f 70 65 20 78 6d 6c 6e 73 3a 73 6f 61 70 3d    lope.xmlns:soap=
+00000040   22 68 74 74 70 3a 2f 2f 73 63 68 65 6d 61 73 2e    "http://schemas.
+00000050   78 6d 6c 73 6f 61 70 2e 6f 72 67 2f 73 6f 61 70    xmlsoap.org/soap
+00000060   2f 65 6e 76 65 6c 6f 70 65 2f 22 20 78 6d 6c 6e    /envelope/".xmln
+00000070   73 3a 78 73 69 3d 22 68 74 74 70 3a 2f 2f 77 77    s:xsi="http://ww
+00000080   77 2e 77 33 2e 6f 72 67 2f 32 30 30 31 2f 58 4d    w.w3.org/2001/XM
+00000090   4c 53 63 68 65 6d 61 2d 69 6e 73 74 61 6e 63 65    LSchema-instance
+000000a0   22 20 78 6d 6c 6e 73 3a 78 73 64 3d 22 68 74 74    ".xmlns:xsd="htt
+000000b0   70 3a 2f 2f 77 77 77 2e 77 33 2e 6f 72 67 2f 32    p://www.w3.org/2
+000000c0   30 30 31 2f 58 4d 4c 53 63 68 65 6d 61 22 3e 3c    001/XMLSchema"><
+000000d0   73 6f 61 70 3a 42 6f 64 79 3e 3c 47 65 74 41 6c    soap:Body><GetAl
+000000e0   6c 49 73 73 75 65 73 46 6f 72 50 72 6f 6a 65 63    lIssuesForProjec
+000000f0   74 20 78 6d 6c 6e 73 3d 22 68 74 74 70 3a 2f 2f    t.xmlns="http://
+00000100   63 6f 75 6e 74 65 72 73 6f 66 74 2e 63 6f 6d 2f    countersoft.com/
+00000110   67 65 6d 69 6e 69 2f 77 65 62 73 65 72 76 69 63    gemini/webservic
+00000120   65 73 2f 22 3e 3c 61 63 63 65 73 73 43 6f 64 65    es/"><accessCode
+00000130   3e 73 65 63 75 72 69 74 79 3c 2f 61 63 63 65 73    >security</acces
+00000140   73 43 6f 64 65 3e 3c 70 72 6f 6a 65 63 74 49 44    sCode><projectID
+00000150   3e 36 3c 2f 70 72 6f 6a 65 63 74 49 44 3e 3c 2f    >6</projectID></
+00000160   47 65 74 41 6c 6c 49 73 73 75 65 73 46 6f 72 50    GetAllIssuesForP
+00000170   72 6f 6a 65 63 74 3e 3c 2f 73 6f 61 70 3a 42 6f    roject></soap:Bo
+00000180   64 79 3e 3c 2f 73 6f 61 70 3a 45 6e 76 65 6c 6f    dy></soap:Envelo
+00000190   70 65 3e                                           pe>

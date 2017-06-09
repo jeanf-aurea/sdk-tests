@@ -1,0 +1,13 @@
+instanceof javax.servlet.ServletRequest implements com.progress.pso.HttpParameterEvaluator$IHttpServletRequest
+{
+}
+
+alias EchoServlet for class EchoServlet
+
+class EchoServlet
+{
+	before doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	{
+ 		com.progress.pso.HttpParameterEvaluator.addParameters($1);
+ 	}
+}

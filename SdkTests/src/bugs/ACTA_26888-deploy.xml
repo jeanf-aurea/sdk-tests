@@ -1,0 +1,422 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<deploy ProductName='ActionalServer' DisplayVersion='9.1.0.16' ProductVersion='9.1016' BuildNumber='unofficial (11.0003.1.9625-WOLF 2016-05-27T11:42:01.400:-0400)' Platform='Java' key='-8281-88-12276-121-4212712332-28-89-84632214928598-10432-254-259924-46-659059527'>
+  <com.actional.soapstation.db.MsgFieldEvaluator key="0000-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <javaPluginLC type='com.actional.soapstation.db.MsgFieldEvaluatorLC'>Plugin.MsgFieldCompoundEvaluator</javaPluginLC>
+    <settings>
+      <item>1000-k0oThPQKWUcy81QB-EB208A0C</item>
+    </settings>
+    <version>1</version>
+  </com.actional.soapstation.db.MsgFieldEvaluator>
+  <com.actional.soapstation.db.Rubric key="0100-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <action type='com.actional.soapstation.db.NodeBehavior'>4100-k0oThPQKWUcy81QB-EB208A0C</action>
+    <condition type='com.actional.soapstation.db.OrCondition'>1100-k0oThPQKWUcy81QB-EB208A0C</condition>
+    <version>1</version>
+  </com.actional.soapstation.db.Rubric>
+  <com.actional.soapstation.db.PolicyGroupRevsMgr key="1000-2VG6L_K8KYwf81QB-EB208A0C" name="Test" direct='true'>
+    <code>65555</code>
+    <scope>EXTERNAL</scope>
+    <version>4</version>
+  </com.actional.soapstation.db.PolicyGroupRevsMgr>
+  <com.actional.db.PluginProperty key="1000-k0oThPQKWUcy81QB-EB208A0C" name="SETTINGS" direct='true'>
+    <code>81936</code>
+    <value type='java.lang.String'>I'm Albert</value>
+    <version>1</version>
+  </com.actional.db.PluginProperty>
+  <com.actional.soapstation.db.OrCondition key="1100-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <children>
+      <item type='com.actional.soapstation.db.AlwaysCondition'>2100-k0oThPQKWUcy81QB-EB208A0C</item>
+      <item type='com.actional.soapstation.db.AlwaysCondition'>3100-k0oThPQKWUcy81QB-EB208A0C</item>
+    </children>
+    <version>1</version>
+  </com.actional.soapstation.db.OrCondition>
+  <com.actional.soapstation.db.PolicyGroup key="2000-2VG6L_K8KYwf81QB-EB208A0C" direct='true'>
+    <code>81937</code>
+    <lastChanged>Fri May 27 12:50:31 EDT 2016</lastChanged>
+    <policies>
+      <item>E000-2VG6L_K8KYwf81QB-EB208A0C</item>
+      <item>3100-2VG6L_K8KYwf81QB-EB208A0C</item>
+      <item>C100-2VG6L_K8KYwf81QB-EB208A0C</item>
+      <item>4200-k0oThPQKWUcy81QB-EB208A0C</item>
+      <item>7200-k0oThPQKWUcy81QB-EB208A0C</item>
+      <item>A200-2VG6L_K8KYwf81QB-EB208A0C</item>
+      <item>D200-2VG6L_K8KYwf81QB-EB208A0C</item>
+    </policies>
+    <refRevsMgr>1000-2VG6L_K8KYwf81QB-EB208A0C</refRevsMgr>
+    <revisionComment>Initial Revision</revisionComment>
+    <revisionNumber>1</revisionNumber>
+    <rulesets>
+      <item>9000-2VG6L_K8KYwf81QB-EB208A0C</item>
+      <item>4000-k0oThPQKWUcy81QB-EB208A0C</item>
+      <item>7100-k0oThPQKWUcy81QB-EB208A0C</item>
+    </rulesets>
+    <version>14</version>
+  </com.actional.soapstation.db.PolicyGroup>
+  <com.actional.soapstation.db.MsgFieldEvaluator key="2000-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <javaPluginLC type='com.actional.soapstation.db.MsgFieldEvaluatorLC'>Plugin.MsgFieldCompoundEvaluator</javaPluginLC>
+    <settings>
+      <item>3000-k0oThPQKWUcy81QB-EB208A0C</item>
+    </settings>
+    <version>1</version>
+  </com.actional.soapstation.db.MsgFieldEvaluator>
+  <com.actional.soapstation.db.AlwaysCondition key="2100-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <version>1</version>
+  </com.actional.soapstation.db.AlwaysCondition>
+  <com.actional.db.PluginProperty key="3000-k0oThPQKWUcy81QB-EB208A0C" name="SETTINGS" direct='true'>
+    <code>81936</code>
+    <value type='java.lang.String'>I'm Bertrand</value>
+    <version>1</version>
+  </com.actional.db.PluginProperty>
+  <com.actional.soapstation.db.Policy key="3100-2VG6L_K8KYwf81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <nodeType>MONITORING</nodeType>
+    <priority>-20</priority>
+    <providerCriteria type='com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria'>9100-2VG6L_K8KYwf81QB-EB208A0C</providerCriteria>
+    <refPolicyGroup>2000-2VG6L_K8KYwf81QB-EB208A0C</refPolicyGroup>
+    <ruleset>7100-k0oThPQKWUcy81QB-EB208A0C</ruleset>
+    <version>2</version>
+  </com.actional.soapstation.db.Policy>
+  <com.actional.soapstation.db.AlwaysCondition key="3100-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <version>1</version>
+  </com.actional.soapstation.db.AlwaysCondition>
+  <com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria key="3200-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <lastKnownDisplayString>/*;*/preserve-and-audit;*</lastKnownDisplayString>
+    <rules>
+      <criteria>
+        <item>
+          <field>L2NAME</field>
+          <operator>EQUALS</operator>
+          <value>preserve-and-audit</value>
+        </item>
+      </criteria>
+      <priority>0</priority>
+    </rules>
+    <version>2</version>
+  </com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria>
+  <com.actional.soapstation.db.Ruleset key="4000-k0oThPQKWUcy81QB-EB208A0C" name="Audit" direct='true'>
+    <code>81936</code>
+    <nodeType>MONITORING</nodeType>
+    <rules>
+      <item>7000-k0oThPQKWUcy81QB-EB208A0C</item>
+    </rules>
+    <version>2</version>
+  </com.actional.soapstation.db.Ruleset>
+  <com.actional.soapstation.db.NodeBehavior key="4100-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <behaviorMap>1</behaviorMap>
+    <rubrics>
+      <item>5100-k0oThPQKWUcy81QB-EB208A0C</item>
+    </rubrics>
+    <type>STANDARD</type>
+    <version>1</version>
+  </com.actional.soapstation.db.NodeBehavior>
+  <com.actional.soapstation.db.Policy key="4200-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <nodeType>MONITORING</nodeType>
+    <priority>-20</priority>
+    <providerCriteria type='com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria'>3200-k0oThPQKWUcy81QB-EB208A0C</providerCriteria>
+    <refPolicyGroup>2000-2VG6L_K8KYwf81QB-EB208A0C</refPolicyGroup>
+    <ruleset>9000-2VG6L_K8KYwf81QB-EB208A0C</ruleset>
+    <version>1</version>
+  </com.actional.soapstation.db.Policy>
+  <com.actional.soapstation.db.Rubric key="5100-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <action type='com.actional.soapstation.db.AuditBehavior'>6100-k0oThPQKWUcy81QB-EB208A0C</action>
+    <version>1</version>
+  </com.actional.soapstation.db.Rubric>
+  <com.actional.soapstation.db.AuditBehavior key="6100-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <attachment>false</attachment>
+    <preservesAuditData>true</preservesAuditData>
+    <reply>false</reply>
+    <request>false</request>
+    <requestVars>
+      <item>com.actional.lg.db.MsgField.TestMF1</item>
+    </requestVars>
+    <version>1</version>
+  </com.actional.soapstation.db.AuditBehavior>
+  <com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria key="6200-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <lastKnownDisplayString>/*;*/preserve-and-audit;*</lastKnownDisplayString>
+    <rules>
+      <criteria>
+        <item>
+          <field>L2NAME</field>
+          <operator>EQUALS</operator>
+          <value>preserve-and-audit</value>
+        </item>
+      </criteria>
+      <priority>0</priority>
+    </rules>
+    <version>2</version>
+  </com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria>
+  <com.actional.soapstation.db.Rule key="7000-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <rubrics>
+      <item>8000-k0oThPQKWUcy81QB-EB208A0C</item>
+    </rubrics>
+    <ruleType>REQUEST_PROCESSING_BEGIN</ruleType>
+    <version>1</version>
+  </com.actional.soapstation.db.Rule>
+  <com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria key="7100-2VG6L_K8KYwf81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <lastKnownDisplayString>/*;*/preserve;*</lastKnownDisplayString>
+    <rules>
+      <criteria>
+        <item>
+          <field>L2NAME</field>
+          <operator>EQUALS</operator>
+          <value>preserve</value>
+        </item>
+      </criteria>
+      <priority>0</priority>
+    </rules>
+    <version>2</version>
+  </com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria>
+  <com.actional.soapstation.db.Ruleset key="7100-k0oThPQKWUcy81QB-EB208A0C" name="Alert" direct='true'>
+    <code>81936</code>
+    <nodeType>MONITORING</nodeType>
+    <rules>
+      <item>8100-k0oThPQKWUcy81QB-EB208A0C</item>
+    </rules>
+    <version>2</version>
+  </com.actional.soapstation.db.Ruleset>
+  <com.actional.soapstation.db.Policy key="7200-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <nodeType>MONITORING</nodeType>
+    <priority>-20</priority>
+    <providerCriteria type='com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria'>6200-k0oThPQKWUcy81QB-EB208A0C</providerCriteria>
+    <refPolicyGroup>2000-2VG6L_K8KYwf81QB-EB208A0C</refPolicyGroup>
+    <ruleset>4000-k0oThPQKWUcy81QB-EB208A0C</ruleset>
+    <version>1</version>
+  </com.actional.soapstation.db.Policy>
+  <com.actional.soapstation.db.Rubric key="8000-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <action type='com.actional.soapstation.db.NodeBehavior'>C000-k0oThPQKWUcy81QB-EB208A0C</action>
+    <condition type='com.actional.soapstation.db.OrCondition'>9000-k0oThPQKWUcy81QB-EB208A0C</condition>
+    <version>1</version>
+  </com.actional.soapstation.db.Rubric>
+  <com.actional.soapstation.db.Rule key="8100-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <rubrics>
+      <item>9100-k0oThPQKWUcy81QB-EB208A0C</item>
+    </rubrics>
+    <ruleType>REQUEST_PROCESSING_BEGIN</ruleType>
+    <version>1</version>
+  </com.actional.soapstation.db.Rule>
+  <com.actional.soapstation.db.Ruleset key="9000-2VG6L_K8KYwf81QB-EB208A0C" name="Preserve" direct='true'>
+    <code>81936</code>
+    <nodeType>MONITORING</nodeType>
+    <rules>
+      <item>F000-k0oThPQKWUcy81QB-EB208A0C</item>
+    </rules>
+    <version>3</version>
+  </com.actional.soapstation.db.Ruleset>
+  <com.actional.soapstation.db.OrCondition key="9000-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <children>
+      <item type='com.actional.soapstation.db.AlwaysCondition'>A000-k0oThPQKWUcy81QB-EB208A0C</item>
+      <item type='com.actional.soapstation.db.AlwaysCondition'>B000-k0oThPQKWUcy81QB-EB208A0C</item>
+    </children>
+    <version>1</version>
+  </com.actional.soapstation.db.OrCondition>
+  <com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria key="9100-2VG6L_K8KYwf81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <lastKnownDisplayString>/*;*/alert;*</lastKnownDisplayString>
+    <rules>
+      <criteria>
+        <item>
+          <field>L2NAME</field>
+          <operator>EQUALS</operator>
+          <value>alert</value>
+        </item>
+      </criteria>
+      <priority>0</priority>
+    </rules>
+    <version>2</version>
+  </com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria>
+  <com.actional.soapstation.db.Rubric key="9100-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <action type='com.actional.soapstation.db.NodeBehavior'>D100-k0oThPQKWUcy81QB-EB208A0C</action>
+    <condition type='com.actional.soapstation.db.OrCondition'>A100-k0oThPQKWUcy81QB-EB208A0C</condition>
+    <version>1</version>
+  </com.actional.soapstation.db.Rubric>
+  <com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria key="9200-2VG6L_K8KYwf81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <lastKnownDisplayString>/*;*/preserve-and-alert;*</lastKnownDisplayString>
+    <rules>
+      <criteria>
+        <item>
+          <field>L2NAME</field>
+          <operator>EQUALS</operator>
+          <value>preserve-and-alert</value>
+        </item>
+      </criteria>
+      <priority>0</priority>
+    </rules>
+    <version>2</version>
+  </com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria>
+  <com.actional.soapstation.db.AlwaysCondition key="A000-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <version>1</version>
+  </com.actional.soapstation.db.AlwaysCondition>
+  <com.actional.soapstation.db.OrCondition key="A100-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <children>
+      <item type='com.actional.soapstation.db.AlwaysCondition'>B100-k0oThPQKWUcy81QB-EB208A0C</item>
+      <item type='com.actional.soapstation.db.AlwaysCondition'>C100-k0oThPQKWUcy81QB-EB208A0C</item>
+    </children>
+    <version>1</version>
+  </com.actional.soapstation.db.OrCondition>
+  <com.actional.soapstation.db.Policy key="A200-2VG6L_K8KYwf81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <nodeType>MONITORING</nodeType>
+    <priority>-20</priority>
+    <providerCriteria type='com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria'>9200-2VG6L_K8KYwf81QB-EB208A0C</providerCriteria>
+    <refPolicyGroup>2000-2VG6L_K8KYwf81QB-EB208A0C</refPolicyGroup>
+    <ruleset>9000-2VG6L_K8KYwf81QB-EB208A0C</ruleset>
+    <version>1</version>
+  </com.actional.soapstation.db.Policy>
+  <com.actional.soapstation.db.AlwaysCondition key="B000-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <version>1</version>
+  </com.actional.soapstation.db.AlwaysCondition>
+  <com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria key="B100-2VG6L_K8KYwf81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <lastKnownDisplayString>/*;*/audit;*</lastKnownDisplayString>
+    <rules>
+      <criteria>
+        <item>
+          <field>L2NAME</field>
+          <operator>EQUALS</operator>
+          <value>audit</value>
+        </item>
+      </criteria>
+      <priority>0</priority>
+    </rules>
+    <version>2</version>
+  </com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria>
+  <com.actional.soapstation.db.AlwaysCondition key="B100-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <version>1</version>
+  </com.actional.soapstation.db.AlwaysCondition>
+  <com.actional.soapstation.db.NodeBehavior key="C000-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <behaviorMap>1</behaviorMap>
+    <rubrics>
+      <item>D000-k0oThPQKWUcy81QB-EB208A0C</item>
+    </rubrics>
+    <type>STANDARD</type>
+    <version>1</version>
+  </com.actional.soapstation.db.NodeBehavior>
+  <com.actional.soapstation.db.Policy key="C100-2VG6L_K8KYwf81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <nodeType>MONITORING</nodeType>
+    <priority>-20</priority>
+    <providerCriteria type='com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria'>B100-2VG6L_K8KYwf81QB-EB208A0C</providerCriteria>
+    <refPolicyGroup>2000-2VG6L_K8KYwf81QB-EB208A0C</refPolicyGroup>
+    <ruleset>4000-k0oThPQKWUcy81QB-EB208A0C</ruleset>
+    <version>1</version>
+  </com.actional.soapstation.db.Policy>
+  <com.actional.soapstation.db.AlwaysCondition key="C100-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <version>1</version>
+  </com.actional.soapstation.db.AlwaysCondition>
+  <com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria key="C200-2VG6L_K8KYwf81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <lastKnownDisplayString>/*;*/preserve-and-alert;*</lastKnownDisplayString>
+    <rules>
+      <criteria>
+        <item>
+          <field>L2NAME</field>
+          <operator>EQUALS</operator>
+          <value>preserve-and-alert</value>
+        </item>
+      </criteria>
+      <priority>0</priority>
+    </rules>
+    <version>2</version>
+  </com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria>
+  <com.actional.soapstation.db.Rubric key="D000-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <action type='com.actional.soapstation.db.AuditBehavior'>E000-k0oThPQKWUcy81QB-EB208A0C</action>
+    <version>1</version>
+  </com.actional.soapstation.db.Rubric>
+  <com.actional.soapstation.db.NodeBehavior key="D100-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <behaviorMap>1</behaviorMap>
+    <rubrics>
+      <item>E100-k0oThPQKWUcy81QB-EB208A0C</item>
+    </rubrics>
+    <type>STANDARD</type>
+    <version>1</version>
+  </com.actional.soapstation.db.NodeBehavior>
+  <com.actional.soapstation.db.Policy key="D200-2VG6L_K8KYwf81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <nodeType>MONITORING</nodeType>
+    <priority>-20</priority>
+    <providerCriteria type='com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria'>C200-2VG6L_K8KYwf81QB-EB208A0C</providerCriteria>
+    <refPolicyGroup>2000-2VG6L_K8KYwf81QB-EB208A0C</refPolicyGroup>
+    <ruleset>7100-k0oThPQKWUcy81QB-EB208A0C</ruleset>
+    <version>1</version>
+  </com.actional.soapstation.db.Policy>
+  <com.actional.soapstation.db.Policy key="E000-2VG6L_K8KYwf81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <nodeType>MONITORING</nodeType>
+    <priority>-20</priority>
+    <providerCriteria type='com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria'>7100-2VG6L_K8KYwf81QB-EB208A0C</providerCriteria>
+    <refPolicyGroup>2000-2VG6L_K8KYwf81QB-EB208A0C</refPolicyGroup>
+    <ruleset>9000-2VG6L_K8KYwf81QB-EB208A0C</ruleset>
+    <version>3</version>
+  </com.actional.soapstation.db.Policy>
+  <com.actional.soapstation.db.AuditBehavior key="E000-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <attachment>false</attachment>
+    <preservesAuditData>false</preservesAuditData>
+    <reply>false</reply>
+    <request>false</request>
+    <requestVars>
+      <item>com.actional.lg.db.MsgField.TestMF2</item>
+    </requestVars>
+    <version>1</version>
+  </com.actional.soapstation.db.AuditBehavior>
+  <com.actional.soapstation.db.Rubric key="E100-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <action type='com.actional.soapstation.db.AlertBehavior'>F100-k0oThPQKWUcy81QB-EB208A0C</action>
+    <version>1</version>
+  </com.actional.soapstation.db.Rubric>
+  <com.actional.soapstation.db.Rule key="F000-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <rubrics>
+      <item>0100-k0oThPQKWUcy81QB-EB208A0C</item>
+    </rubrics>
+    <ruleType>REQUEST_PROCESSING_BEGIN</ruleType>
+    <version>1</version>
+  </com.actional.soapstation.db.Rule>
+  <com.actional.soapstation.db.AlertBehavior key="F100-k0oThPQKWUcy81QB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <alertSeverity>ALARM</alertSeverity>
+    <dependencies>
+      <item type='com.actional.lg.db.MsgField'>com.actional.lg.db.MsgField.TestMF2</item>
+    </dependencies>
+    <message>Test = %field.TestMF2%</message>
+    <version>1</version>
+  </com.actional.soapstation.db.AlertBehavior>
+  <com.actional.lg.db.MsgField key="com.actional.lg.db.MsgField.TestMF1" name="TestMF1" direct='true'>
+    <code>81938</code>
+    <defaultEvaluator type='com.actional.soapstation.db.MsgFieldEvaluator'>0000-k0oThPQKWUcy81QB-EB208A0C</defaultEvaluator>
+    <version>2</version>
+  </com.actional.lg.db.MsgField>
+  <com.actional.lg.db.MsgField key="com.actional.lg.db.MsgField.TestMF2" name="TestMF2" direct='true'>
+    <code>81938</code>
+    <defaultEvaluator type='com.actional.soapstation.db.MsgFieldEvaluator'>2000-k0oThPQKWUcy81QB-EB208A0C</defaultEvaluator>
+    <version>2</version>
+  </com.actional.lg.db.MsgField>
+  <com.actional.soapstation.db.MsgFieldEvaluatorLC key="Plugin.MsgFieldCompoundEvaluator" name="Compound evaluator" partial='true'/>
+</deploy>

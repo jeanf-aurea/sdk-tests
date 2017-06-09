@@ -1,0 +1,6 @@
+@ECHO OFF
+SETLOCAL
+
+SET ANT_HOME=%ORBS_ROOT%\ant\1.9.6
+
+CALL "%ANT_HOME%\bin\ant.bat" %*

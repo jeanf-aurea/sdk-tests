@@ -1,0 +1,6 @@
+class plugmaker.SunNioLinkageError$MyFakeClass
+{
+	method public void m()
+	{
+	}
+}

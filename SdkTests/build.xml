@@ -1,0 +1,18 @@
+<project name="SdkTest" default="all">
+
+<target name="all">
+	<jar file="sdk-tests.jar">
+		<fileset dir="bin">
+			<include name="bp/pathid/MultiStepsControlled.*" />
+			<include name="bugs/ACTA_26888.*" />
+			<include name="msgfield/Xpath.*" />
+		</fileset>
+		<fileset dir="src">
+			<include name="bp/pathid/MultiStepsControlled.*" />
+			<include name="bugs/ACTA_26888*" />
+			<include name="msgfield/Xpath*" />
+		</fileset>
+	</jar>
+</target>
+
+</project>

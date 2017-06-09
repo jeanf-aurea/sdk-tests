@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<deploy ProductName='ActionalServer' DisplayVersion='10.0.1.7' ProductVersion='10.0107' BuildNumber='unofficial (10.0107.42.285-WOLF 2016-06-27T14:19:09.094:-0400)' Platform='Java' key='1108-1104379-1523-100853311124-422562-878331-516768-368682-81104121-3843385'>
+  <com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria key="1000-ZOEBEHcmXX1Hk1UB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <lastKnownDisplayString>/xpath-node1;*</lastKnownDisplayString>
+    <rules>
+      <criteria>
+        <item>
+          <field>L1NAME</field>
+          <operator>EQUALS</operator>
+          <value>xpath-node1</value>
+        </item>
+      </criteria>
+      <priority>0</priority>
+    </rules>
+    <version>2</version>
+  </com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria>
+  <com.actional.soapstation.db.MsgFieldEvaluator key="2000-ZOEBEHcmXX1Hk1UB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <javaPluginLC type='com.actional.soapstation.db.MsgFieldEvaluatorLC'>Plugin.MsgFieldXpathEvaluator</javaPluginLC>
+    <settings>
+      <item>3000-ZOEBEHcmXX1Hk1UB-EB208A0C</item>
+      <item>4000-ZOEBEHcmXX1Hk1UB-EB208A0C</item>
+    </settings>
+    <version>1</version>
+  </com.actional.soapstation.db.MsgFieldEvaluator>
+  <com.actional.soapstation.db.Ruleset key="2100-Oc1jouCHEZoxk1UB-EB208A0C" name="Test" direct='true'>
+    <code>81936</code>
+    <nodeType>MONITORING</nodeType>
+    <rules>
+      <item>5100-Oc1jouCHEZoxk1UB-EB208A0C</item>
+    </rules>
+    <version>2</version>
+  </com.actional.soapstation.db.Ruleset>
+  <com.actional.db.PluginProperty key="3000-ZOEBEHcmXX1Hk1UB-EB208A0C" name="xmlns" direct='true'>
+    <code>81936</code>
+    <version>1</version>
+  </com.actional.db.PluginProperty>
+  <com.actional.lg.db.MsgFieldSiteAssignment key="4000-Oc1jouCHEZoxk1UB-EB208A0C" direct='true'>
+    <code>81938</code>
+    <evaluator>7000-ZOEBEHcmXX1Hk1UB-EB208A0C</evaluator>
+    <msgField>com.actional.lg.db.MsgField.XpathTestFF1</msgField>
+    <siteCriteria type='com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria'>6000-ZOEBEHcmXX1Hk1UB-EB208A0C</siteCriteria>
+    <version>2</version>
+  </com.actional.lg.db.MsgFieldSiteAssignment>
+  <com.actional.db.PluginProperty key="4000-ZOEBEHcmXX1Hk1UB-EB208A0C" name="expr" direct='true'>
+    <code>81936</code>
+    <value type='java.lang.String'>/animal</value>
+    <version>1</version>
+  </com.actional.db.PluginProperty>
+  <com.actional.soapstation.db.Rule key="5100-Oc1jouCHEZoxk1UB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <rubrics>
+      <item>6100-Oc1jouCHEZoxk1UB-EB208A0C</item>
+    </rubrics>
+    <ruleType>REQUEST_PROCESSING_BEGIN</ruleType>
+    <version>1</version>
+  </com.actional.soapstation.db.Rule>
+  <com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria key="6000-ZOEBEHcmXX1Hk1UB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <lastKnownDisplayString>/xpath-node1;*</lastKnownDisplayString>
+    <rules>
+      <criteria>
+        <item>
+          <field>L1NAME</field>
+          <operator>EQUALS</operator>
+          <value>xpath-node1</value>
+        </item>
+      </criteria>
+      <priority>0</priority>
+    </rules>
+    <version>2</version>
+  </com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria>
+  <com.actional.soapstation.db.Rubric key="6100-Oc1jouCHEZoxk1UB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <action type='com.actional.soapstation.db.NodeBehavior'>A100-Oc1jouCHEZoxk1UB-EB208A0C</action>
+    <condition type='com.actional.soapstation.db.OrCondition'>7100-Oc1jouCHEZoxk1UB-EB208A0C</condition>
+    <version>1</version>
+  </com.actional.soapstation.db.Rubric>
+  <com.actional.soapstation.db.MsgFieldEvaluator key="7000-ZOEBEHcmXX1Hk1UB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <javaPluginLC type='com.actional.soapstation.db.MsgFieldEvaluatorLC'>Plugin.MsgFieldXpathEvaluator</javaPluginLC>
+    <settings>
+      <item>8000-ZOEBEHcmXX1Hk1UB-EB208A0C</item>
+      <item>9000-ZOEBEHcmXX1Hk1UB-EB208A0C</item>
+    </settings>
+    <version>1</version>
+  </com.actional.soapstation.db.MsgFieldEvaluator>
+  <com.actional.soapstation.db.OrCondition key="7100-Oc1jouCHEZoxk1UB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <children>
+      <item type='com.actional.soapstation.db.AlwaysCondition'>8100-Oc1jouCHEZoxk1UB-EB208A0C</item>
+      <item type='com.actional.soapstation.db.AlwaysCondition'>9100-Oc1jouCHEZoxk1UB-EB208A0C</item>
+    </children>
+    <version>1</version>
+  </com.actional.soapstation.db.OrCondition>
+  <com.actional.db.PluginProperty key="8000-ZOEBEHcmXX1Hk1UB-EB208A0C" name="xmlns" direct='true'>
+    <code>81936</code>
+    <version>1</version>
+  </com.actional.db.PluginProperty>
+  <com.actional.soapstation.db.AlwaysCondition key="8100-Oc1jouCHEZoxk1UB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <version>1</version>
+  </com.actional.soapstation.db.AlwaysCondition>
+  <com.actional.db.PluginProperty key="9000-ZOEBEHcmXX1Hk1UB-EB208A0C" name="expr" direct='true'>
+    <code>81936</code>
+    <value type='java.lang.String'>/animal</value>
+    <version>1</version>
+  </com.actional.db.PluginProperty>
+  <com.actional.soapstation.db.AlwaysCondition key="9100-Oc1jouCHEZoxk1UB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <version>1</version>
+  </com.actional.soapstation.db.AlwaysCondition>
+  <com.actional.soapstation.db.PolicyGroupRevsMgr key="A000-Oc1jouCHEZoxk1UB-EB208A0C" name="XpathTest" direct='true'>
+    <code>65555</code>
+    <scope>EXTERNAL</scope>
+    <version>2</version>
+  </com.actional.soapstation.db.PolicyGroupRevsMgr>
+  <com.actional.lg.db.MsgFieldSiteAssignment key="A000-Wz8pswVoSwcuk1UB-EB208A0C" direct='true'>
+    <code>81938</code>
+    <evaluator>2000-ZOEBEHcmXX1Hk1UB-EB208A0C</evaluator>
+    <msgField>com.actional.lg.db.MsgField.XpathTestMF1</msgField>
+    <siteCriteria type='com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria'>1000-ZOEBEHcmXX1Hk1UB-EB208A0C</siteCriteria>
+    <version>2</version>
+  </com.actional.lg.db.MsgFieldSiteAssignment>
+  <com.actional.soapstation.db.NodeBehavior key="A100-Oc1jouCHEZoxk1UB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <behaviorMap>1</behaviorMap>
+    <rubrics>
+      <item>B100-Oc1jouCHEZoxk1UB-EB208A0C</item>
+    </rubrics>
+    <type>STANDARD</type>
+    <version>1</version>
+  </com.actional.soapstation.db.NodeBehavior>
+  <com.actional.soapstation.db.PolicyGroup key="B000-Oc1jouCHEZoxk1UB-EB208A0C" direct='true'>
+    <code>81937</code>
+    <lastChanged>Mon Jun 27 14:50:00 EDT 2016</lastChanged>
+    <policies>
+      <item>D100-Oc1jouCHEZoxk1UB-EB208A0C</item>
+    </policies>
+    <refRevsMgr>A000-Oc1jouCHEZoxk1UB-EB208A0C</refRevsMgr>
+    <revisionComment>Initial Revision</revisionComment>
+    <revisionNumber>1</revisionNumber>
+    <rulesets>
+      <item>2100-Oc1jouCHEZoxk1UB-EB208A0C</item>
+    </rulesets>
+    <version>4</version>
+  </com.actional.soapstation.db.PolicyGroup>
+  <com.actional.soapstation.db.Rubric key="B100-Oc1jouCHEZoxk1UB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <action type='com.actional.soapstation.db.AuditBehavior'>C100-Oc1jouCHEZoxk1UB-EB208A0C</action>
+    <version>1</version>
+  </com.actional.soapstation.db.Rubric>
+  <com.actional.soapstation.db.AuditBehavior key="C100-Oc1jouCHEZoxk1UB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <attachment>false</attachment>
+    <preservesAuditData>false</preservesAuditData>
+    <reply>true</reply>
+    <request>true</request>
+    <requestVars>
+      <item>com.actional.lg.db.MsgField.XpathTestFF1</item>
+      <item>com.actional.lg.db.MsgField.XpathTestMF1</item>
+    </requestVars>
+    <version>1</version>
+  </com.actional.soapstation.db.AuditBehavior>
+  <com.actional.soapstation.db.Policy key="D100-Oc1jouCHEZoxk1UB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <nodeType>MONITORING</nodeType>
+    <priority>-20</priority>
+    <providerCriteria type='com.actional.lg.db.sitecriteria.MatchAllSites'>E100-Oc1jouCHEZoxk1UB-EB208A0C</providerCriteria>
+    <refPolicyGroup>B000-Oc1jouCHEZoxk1UB-EB208A0C</refPolicyGroup>
+    <ruleset>2100-Oc1jouCHEZoxk1UB-EB208A0C</ruleset>
+    <version>1</version>
+  </com.actional.soapstation.db.Policy>
+  <com.actional.lg.db.sitecriteria.MatchAllSites key="E100-Oc1jouCHEZoxk1UB-EB208A0C" direct='true'>
+    <code>81936</code>
+    <lastKnownDisplayString>/* (All Sites)</lastKnownDisplayString>
+    <version>2</version>
+  </com.actional.lg.db.sitecriteria.MatchAllSites>
+  <com.actional.lg.db.MsgField key="com.actional.lg.db.MsgField.XpathTestFF1" name="XpathTestFF1" direct='true'>
+    <code>81938</code>
+    <isFlowField>true</isFlowField>
+    <version>1</version>
+  </com.actional.lg.db.MsgField>
+  <com.actional.lg.db.MsgField key="com.actional.lg.db.MsgField.XpathTestMF1" name="XpathTestMF1" direct='true'>
+    <code>81938</code>
+    <version>1</version>
+  </com.actional.lg.db.MsgField>
+  <com.actional.soapstation.db.MsgFieldEvaluatorLC key="Plugin.MsgFieldXpathEvaluator" name="XPath evaluator" partial='true'/>
+  <com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria key="1000-ZOEBEHcmXX1Hk1UB-EB208A0C" direct='true'>
+    <!--
+    NameAndTypeRulesSiteCriteria for MsgFieldSiteAssignment of Field 'XpathTestMF1'
+    -->
+    <code>81936</code>
+    <lastKnownDisplayString>/xpath-node1;*</lastKnownDisplayString>
+    <rules>
+      <criteria>
+        <item>
+          <field>L1NAME</field>
+          <operator>EQUALS</operator>
+          <value>xpath-node1</value>
+        </item>
+      </criteria>
+      <priority>0</priority>
+    </rules>
+    <version>2</version>
+  </com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria>
+  <com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria key="6000-ZOEBEHcmXX1Hk1UB-EB208A0C" direct='true'>
+    <!--
+    NameAndTypeRulesSiteCriteria for MsgFieldSiteAssignment of Field 'XpathTestFF1'
+    -->
+    <code>81936</code>
+    <lastKnownDisplayString>/xpath-node1;*</lastKnownDisplayString>
+    <rules>
+      <criteria>
+        <item>
+          <field>L1NAME</field>
+          <operator>EQUALS</operator>
+          <value>xpath-node1</value>
+        </item>
+      </criteria>
+      <priority>0</priority>
+    </rules>
+    <version>2</version>
+  </com.actional.lg.db.sitecriteria.NameAndTypeRulesSiteCriteria>
+</deploy>

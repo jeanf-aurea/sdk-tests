@@ -1,0 +1,10 @@
+instanceof instrumentingJavaProxies.InterfaceToInstrument
+	implements instrumentingJavaProxies.BridgeInterface
+{
+	property private java.lang.Object ClientInteraction__;
+	
+	before method(java.lang.Object)
+	{
+		System.out.println("INSTRUMENTED: " + this.getClass().getName());
+	}
+}
