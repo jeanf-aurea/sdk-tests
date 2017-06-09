@@ -200,11 +200,27 @@ public class Call extends com.actional.lg.interceptor.internal.simulator.Simulat
 		le.setLogCategories(getJsonStringList(json, "categories"));
 
 		final String logLevelStr = getJsonString(json, "level");
-		final LogLevel logLevel = LogLevel.valueOf(logLevelStr);
+		final LogLevel logLevel = findLogLevelFromString(logLevelStr);
 
 		le.setLogLevel(logLevel);
 
 		le.end();
+	}
+
+	protected static LogLevel findLogLevelFromString(final String logLevelStr)
+	{
+		if (logLevelStr == null)
+			return LogLevel.UNKNOWN;
+
+		final LogLevel[] all = LogLevel.getAllLogLevels();
+
+		for (final LogLevel level : all)
+		{
+			if (logLevelStr.equals(level.toString()))
+				return level;
+		}
+
+		return LogLevel.UNKNOWN;
 	}
 
 	private long getJsonLong(final JsonObject obj, final String prop)
