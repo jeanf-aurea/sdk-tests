@@ -225,9 +225,9 @@ public class Call extends com.actional.lg.interceptor.internal.simulator.Simulat
 
 	private long getJsonLong(final JsonObject obj, final String prop)
 	{
-		final JsonElement elem = obj.get(prop);
+		final JsonElement elem = getJsonElement(obj, prop);
 
-		if (elem == null || elem.isJsonNull())
+		if (elem == null)
 			return 0L;
 
 		return elem.getAsLong();
@@ -235,9 +235,9 @@ public class Call extends com.actional.lg.interceptor.internal.simulator.Simulat
 
 	private String getJsonString(final JsonObject obj, final String prop)
 	{
-		final JsonElement elem = obj.get(prop);
+		final JsonElement elem = getJsonElement(obj, prop);
 
-		if (elem == null || elem.isJsonNull())
+		if (elem == null)
 			return null;
 
 		return elem.getAsString();
@@ -245,9 +245,9 @@ public class Call extends com.actional.lg.interceptor.internal.simulator.Simulat
 
 	private List<String> getJsonStringList(final JsonObject obj, final String prop)
 	{
-		final JsonElement elem = obj.get(prop);
+		final JsonElement elem = getJsonElement(obj, prop);
 
-		if (elem == null || elem.isJsonNull())
+		if (elem == null)
 			return null;
 
 		final JsonArray arr = elem.getAsJsonArray();
@@ -259,5 +259,23 @@ public class Call extends com.actional.lg.interceptor.internal.simulator.Simulat
 		}
 
 		return rtrn;
+	}
+
+	private JsonElement getJsonElement(final JsonObject obj, final String prop)
+	{
+		JsonElement elem = getJsonElement(obj.get(prop));
+
+		if (elem == null)
+			elem = getJsonElement(obj.get(prop.toLowerCase()));
+
+		return elem;
+	}
+
+	private JsonElement getJsonElement(final JsonElement elem)
+	{
+		if (elem == null || elem.isJsonNull())
+			return null;
+		else
+			return elem;
 	}
 }

@@ -36,6 +36,8 @@ public class ForceMsgField extends Simulator
 		new ForceMsgField().generate();
 
 		Thread.sleep(1000L);
+
+		System.out.println("Done.");
 	}
 
 	private ForceMsgField()

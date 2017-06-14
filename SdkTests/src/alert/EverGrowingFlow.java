@@ -22,7 +22,9 @@ import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -60,16 +62,17 @@ public class EverGrowingFlow extends util.Call
 		super(test);
 	}
 
-	private static final String PART_REQUEST = "request";
-	private static final String PART_REPLY = "reply";
+	private static final String REQUEST = "request";
+	private static final String REPLY = "reply";
 
 	private static final String NEW_FLOW_CMD = "new";
 	private static final String EXIT_CMD = "exit";
 	private static final String LOG_CMD = "log ";
 	private static final String PART_CMD = "part";
+	private static final String FIELD_CMD = "field";
 
 	private static final Pattern PART_PATTERN = Pattern.compile(
-			"\\s*" + PART_CMD + "\\s+(" + PART_REQUEST + "|" + PART_REPLY + ")\\s+(.+)");
+			"\\s*" + PART_CMD + "\\s+(" + REQUEST + "|" + REPLY + ")\\s+(.+)");
 
 	private static void printHelp()
 	{
@@ -77,7 +80,8 @@ public class EverGrowingFlow extends util.Call
 		STDOUT.println("Enter '" + EXIT_CMD + "' to terminate.");
 		STDOUT.println("Enter '" + NEW_FLOW_CMD + "' to start a new flow.");
 		STDOUT.println("Enter '" + LOG_CMD + "<message>' to create an application log.");
-		STDOUT.println("Enter '" + PART_CMD + " <" + PART_REQUEST + "|" + PART_REPLY + "> <json>' to add a part to the next SI.");
+		STDOUT.println("Enter '" + PART_CMD + " <" + REQUEST + "|" + REPLY + "> <json>' to add a part to the next SI.");
+		STDOUT.println("Enter '" + FIELD_CMD + " <" + REQUEST + "|" + REPLY + "> <name> <value>' to add a message field to the next SI.");
 	}
 
 	private static void useCaseU1() throws Exception
@@ -90,6 +94,8 @@ public class EverGrowingFlow extends util.Call
 		final EverGrowingFlow test = new EverGrowingFlow(prefix);
 		final List<Part> requestParts = new ArrayList<>();
 		final List<Part> replyParts = new ArrayList<>();
+		final Map<String, String> requestMsgFields = new HashMap<>();
+		final Map<String, String> replyMsgFields = new HashMap<>();
 
 		try
 		{
@@ -112,7 +118,48 @@ public class EverGrowingFlow extends util.Call
 					if (null == line)
 						return;
 
-					line = line.trim().toLowerCase();
+					line = line.trim();
+
+					if (line.isEmpty())
+					{
+						STDOUT.println("Generating step " + index);
+
+						si = test.inbound(si, "node" + index, "app" + index, "service" + index,
+								"op" + index);
+
+						for (final Part part : requestParts)
+							si.addRequestPart(part);
+
+						for (final Map.Entry<String, String> field : requestMsgFields.entrySet())
+						{
+							si.setMsgField(field.getKey(), field.getValue(), true);
+						}
+
+						if (!requestParts.isEmpty() || !replyParts.isEmpty() ||
+						    !requestMsgFields.isEmpty() || !replyMsgFields.isEmpty())
+						{
+							si.requestAnalyzed();
+						}
+
+						for (final Part part : replyParts)
+							si.addReplyPart(part);
+
+						for (final Map.Entry<String, String> field : replyMsgFields.entrySet())
+						{
+							si.setMsgField(field.getKey(), field.getValue(), true);
+						}
+
+						requestParts.clear();
+						requestMsgFields.clear();
+						replyParts.clear();
+						replyMsgFields.clear();
+
+						si.setElapsed(index++);
+
+						si.end();
+
+						continue;
+					}
 
 					if (EXIT_CMD.equals(line))
 						return;
@@ -140,7 +187,7 @@ public class EverGrowingFlow extends util.Call
 						final String json = matcher.group(2);
 						final Part part = jsonToPart(json);
 
-						if (PART_REQUEST.equals(reqOrRep))
+						if (REQUEST.equals(reqOrRep))
 							requestParts.add(part);
 						else
 							replyParts.add(part);
@@ -148,42 +195,24 @@ public class EverGrowingFlow extends util.Call
 						continue;
 					}
 
-					if (!line.isEmpty())
+					final String[] cmdLine = line.split("\\s+");
+
+					if (cmdLine.length == 4 && cmdLine[0].equals(FIELD_CMD))
 					{
-						STDOUT.println("Unrecognized command : " + line);
-						printHelp();
-						continue;
+						if (REQUEST.equals(cmdLine[1]))
+						{
+							requestMsgFields.put(cmdLine[2], cmdLine[3]);
+							continue;
+						}
+						else if (REPLY.equals(cmdLine[1]))
+						{
+							replyMsgFields.put(cmdLine[2], cmdLine[3]);
+							continue;
+						}
 					}
 
-					STDOUT.println("Generating step " + index);
-
-					si = test.inbound(si, "node" + index, "app" + index, "service" + index, "op" + index);
-
-					if (!requestParts.isEmpty())
-					{
-						for (final Part part : requestParts)
-							si.addRequestPart(part);
-
-						requestParts.clear();
-
-						si.requestAnalyzed();
-					}
-
-					if (!replyParts.isEmpty())
-					{
-						si.requestAnalyzed();
-
-						for (final Part part : replyParts)
-							si.addRequestPart(part);
-
-						replyParts.clear();
-
-						si.requestAnalyzed();
-					}
-
-					si.setElapsed(index++);
-
-					si.end();
+					STDOUT.println("Unrecognized command : " + line);
+					printHelp();
 				}
 			}
 		}
