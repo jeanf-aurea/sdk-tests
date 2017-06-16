@@ -22,12 +22,14 @@ import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.actional.lg.interceptor.sdk.ClientInteraction;
 import com.actional.lg.interceptor.sdk.LogLevel;
 import com.actional.lg.interceptor.sdk.Part;
 import com.actional.lg.interceptor.sdk.ServerInteraction;
@@ -70,6 +72,9 @@ public class EverGrowingFlow extends util.Call
 	private static final String LOG_CMD = "log ";
 	private static final String PART_CMD = "part";
 	private static final String FIELD_CMD = "field";
+	private static final String BEGIN_CMD = "begin";
+	private static final String ELAPSED_CMD = "elapsed";
+	private static final String BASE_TIME_CMD = "baseTime";
 
 	private static final Pattern PART_PATTERN = Pattern.compile(
 			"\\s*" + PART_CMD + "\\s+(" + REQUEST + "|" + REPLY + ")\\s+(.+)");
@@ -82,6 +87,9 @@ public class EverGrowingFlow extends util.Call
 		STDOUT.println("Enter '" + LOG_CMD + "<message>' to create an application log.");
 		STDOUT.println("Enter '" + PART_CMD + " <" + REQUEST + "|" + REPLY + "> <json>' to add a part to the next SI.");
 		STDOUT.println("Enter '" + FIELD_CMD + " <" + REQUEST + "|" + REPLY + "> <name> <value>' to add a message field to the next SI.");
+		STDOUT.println("Enter '" + BASE_TIME_CMD + " to reset the base begin time to now.");
+		STDOUT.println("Enter '" + BEGIN_CMD + " <integer value> to set the begin time of the interaction (considered relative time to base time if before 2017/01/01 00:00:00 UTC).");
+		STDOUT.println("Enter '" + ELAPSED_CMD + " <integer value> to set the begin time of the interaction.");
 	}
 
 	private static void useCaseU1() throws Exception
@@ -90,42 +98,77 @@ public class EverGrowingFlow extends util.Call
 
 		printHelp();
 
+		final long utc2017 = 1483228800000L; // January 1st 2017
 		final String prefix = "u1";
 		final EverGrowingFlow test = new EverGrowingFlow(prefix);
 		final List<Part> requestParts = new ArrayList<>();
 		final List<Part> replyParts = new ArrayList<>();
 		final Map<String, String> requestMsgFields = new HashMap<>();
 		final Map<String, String> replyMsgFields = new HashMap<>();
+		long beginTime = -1L;
+		int elapsedTime = -1;
+		ServerInteraction si = null;
+		int index = 1;
+
+		long baseTime = System.currentTimeMillis();
 
 		try
 		{
 			while (true)
 			{
-				STDOUT.println("Starting a new flow...");
+				String line = lnr.readLine();
 
-				ServerInteraction si = test.inbound("web-client", "node1", "app1", "service1", "op1");
+				if (null == line)
+					return;
 
-				si.setElapsed(1);
+				line = line.trim();
 
-				si.end();
-
-				int index = 2;
-
-				while (true)
+				if (line.isEmpty() || NEW_FLOW_CMD.equals(line))
 				{
-					String line = lnr.readLine();
-
-					if (null == line)
-						return;
-
-					line = line.trim();
-
 					if (line.isEmpty())
 					{
 						STDOUT.println("Generating step " + index);
 
-						si = test.inbound(si, "node" + index, "app" + index, "service" + index,
-								"op" + index);
+						final String l1 = "node" + index;
+						final String l2 = "app" + index;
+						final String l3 = "service" + index;
+						final String l4 = "op" + index;
+
+						if (si == null)
+						{
+							si = test.inbound("web-client", l1, l2, l3, l4);
+						}
+						else
+						{
+							final ClientInteraction ci = test.outbound(si, l1, l2, l3, l4);
+
+							if (beginTime >= 0)
+							{
+								if (beginTime < utc2017)
+									ci.setBeginTime(baseTime + beginTime);
+								else
+									ci.setBeginTime(beginTime);
+							}
+
+							if (elapsedTime < 0)
+								ci.setElapsed(index);
+							else
+								ci.setElapsed(elapsedTime);
+
+							ci.end();
+
+							si = test.inbound(ci, l1, l2, l3, l4);
+						}
+
+						si.setSecurityID("jeanf@aurea.com");
+
+						if (beginTime >= 0)
+						{
+							if (beginTime < utc2017)
+								si.setBeginTime(baseTime + beginTime);
+							else
+								si.setBeginTime(beginTime);
+						}
 
 						for (final Part part : requestParts)
 							si.addRequestPart(part);
@@ -149,71 +192,97 @@ public class EverGrowingFlow extends util.Call
 							si.setMsgField(field.getKey(), field.getValue(), true);
 						}
 
-						requestParts.clear();
-						requestMsgFields.clear();
-						replyParts.clear();
-						replyMsgFields.clear();
-
-						si.setElapsed(index++);
+						if (elapsedTime < 0)
+							si.setElapsed(index);
+						else
+							si.setElapsed(elapsedTime);
 
 						si.end();
 
-						continue;
+						index++;
 					}
-
-					if (EXIT_CMD.equals(line))
-						return;
-
-					if (NEW_FLOW_CMD.equals(line))
-						break;
-
-					if (line.startsWith(LOG_CMD))
+					else
 					{
-						final String msg = line.substring(LOG_CMD.length()).trim();
+						STDOUT.println("Starting a new flow...");
 
-						if (msg.startsWith("{") && msg.endsWith("}"))
-							test.addJsonLogEntry(si, msg);
-						else
-							test.logEntry(si, LogLevel.INFO, msg);
-
-						continue;
+						si = null;
+						index = 1;
 					}
 
-					final Matcher matcher = PART_PATTERN.matcher(line);
+					requestParts.clear();
+					requestMsgFields.clear();
+					replyParts.clear();
+					replyMsgFields.clear();
+					beginTime = -1L;
+					elapsedTime = -1;
 
-					if (matcher.matches())
-					{
-						final String reqOrRep = matcher.group(1);
-						final String json = matcher.group(2);
-						final Part part = jsonToPart(json);
-
-						if (REQUEST.equals(reqOrRep))
-							requestParts.add(part);
-						else
-							replyParts.add(part);
-
-						continue;
-					}
-
-					final String[] cmdLine = line.split("\\s+");
-
-					if (cmdLine.length == 4 && cmdLine[0].equals(FIELD_CMD))
-					{
-						if (REQUEST.equals(cmdLine[1]))
-						{
-							requestMsgFields.put(cmdLine[2], cmdLine[3]);
-							continue;
-						}
-						else if (REPLY.equals(cmdLine[1]))
-						{
-							replyMsgFields.put(cmdLine[2], cmdLine[3]);
-							continue;
-						}
-					}
-
-					STDOUT.println("Unrecognized command : " + line);
-					printHelp();
+					continue;
 				}
+
+				if (EXIT_CMD.equals(line))
+					return;
+
+				if (line.startsWith(LOG_CMD))
+				{
+					final String msg = line.substring(LOG_CMD.length()).trim();
+
+					if (msg.startsWith("{") && msg.endsWith("}"))
+						test.addJsonLogEntry(si, msg);
+					else
+						test.logEntry(si, LogLevel.INFO, msg);
+
+					continue;
+				}
+
+				final Matcher matcher = PART_PATTERN.matcher(line);
+
+				if (matcher.matches())
+				{
+					final String reqOrRep = matcher.group(1);
+					final String json = matcher.group(2);
+					final Part part = jsonToPart(json);
+
+					if (REQUEST.equals(reqOrRep))
+						requestParts.add(part);
+					else
+						replyParts.add(part);
+
+					continue;
+				}
+
+				final String[] cmdLine = line.split("\\s+");
+
+				if (cmdLine.length == 4 && cmdLine[0].equals(FIELD_CMD))
+				{
+					if (REQUEST.equals(cmdLine[1]))
+					{
+						requestMsgFields.put(cmdLine[2], cmdLine[3]);
+						continue;
+					}
+					else if (REPLY.equals(cmdLine[1]))
+					{
+						replyMsgFields.put(cmdLine[2], cmdLine[3]);
+						continue;
+					}
+				}
+				else if (cmdLine.length == 2 && BEGIN_CMD.equals(cmdLine[0]))
+				{
+					beginTime = Long.parseLong(cmdLine[1]);
+					continue;
+				}
+				else if (cmdLine.length == 2 && ELAPSED_CMD.equals(cmdLine[0]))
+				{
+					elapsedTime = Integer.parseInt(cmdLine[1]);
+					continue;
+				}
+				else if (cmdLine.length == 1 && BASE_TIME_CMD.equals(cmdLine[0]))
+				{
+					baseTime = System.currentTimeMillis();
+					continue;
+				}
+
+				STDOUT.println("Unrecognized command : " + Arrays.asList(cmdLine));
+				printHelp();
 			}
 		}
 		finally
