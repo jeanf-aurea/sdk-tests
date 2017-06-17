@@ -170,6 +170,8 @@ public class EverGrowingFlow extends util.Call
 								si.setBeginTime(beginTime);
 						}
 
+						si.setNativeID("request-" + si.getBeginTime());
+
 						for (final Part part : requestParts)
 							si.addRequestPart(part);
 
