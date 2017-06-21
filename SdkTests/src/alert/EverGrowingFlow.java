@@ -23,6 +23,7 @@ import java.io.LineNumberReader;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -112,6 +113,8 @@ public class EverGrowingFlow extends util.Call
 
 		long baseTime = System.currentTimeMillis();
 
+		STDOUT.println("Base Time = " + toDateString(baseTime));
+
 		try
 		{
 			while (true)
@@ -137,6 +140,8 @@ public class EverGrowingFlow extends util.Call
 						if (si == null)
 						{
 							si = test.inbound("web-client", l1, l2, l3, l4);
+
+							STDOUT.println("Flow = " + si.getFlowID());
 						}
 						else
 						{
@@ -155,11 +160,14 @@ public class EverGrowingFlow extends util.Call
 							else
 								ci.setElapsed(elapsedTime);
 
+							ci.setOneWay(false);
+
 							ci.end();
 
 							si = test.inbound(ci, l1, l2, l3, l4);
 						}
 
+						si.setOneWay(false);
 						si.setSecurityID("jeanf@aurea.com");
 
 						if (beginTime >= 0)
@@ -280,6 +288,7 @@ public class EverGrowingFlow extends util.Call
 				else if (cmdLine.length == 1 && BASE_TIME_CMD.equals(cmdLine[0]))
 				{
 					baseTime = System.currentTimeMillis();
+					STDOUT.println("Base Time = " + toDateString(baseTime));
 					continue;
 				}
 
@@ -291,5 +300,10 @@ public class EverGrowingFlow extends util.Call
 		{
 			STDOUT.println("Exiting...");
 		}
+	}
+
+	private static String toDateString(final long epoch)
+	{
+		return new Date(epoch) + " (" + epoch + ")";
 	}
 }
